@@ -8,9 +8,7 @@ const wrapper = document.querySelector(".wrapper")
 async function getQuote(url) {
     const quoteResponse = await fetch(url)
     let quotes = await quoteResponse.json()
-    quote.innerHTML = '" ' + quotes.content + ' "'
-    author.innerHTML = quotes.author
-    console.log(quotes)
+    return quotes
 }
 
 async function loadJsonData(url) {
@@ -19,9 +17,7 @@ async function loadJsonData(url) {
     return data
 }
 
-async function generateQuote() {
-    getQuote(api_url)
-    
+async function changeBackground() {
     const data = await loadJsonData('/data.json')
     const {images} = data
     const randomIndex = Math.floor(Math.random() * images.length)
@@ -30,8 +26,19 @@ async function generateQuote() {
     wrapper.style.backgroundImage =  `url(${selectedImage.url})`
 }
 
+async function generateQuote() {
+    const quotes = await getQuote(api_url)
+    quote.innerHTML = '" ' + quotes.content + ' "'
+    author.innerHTML = quotes.author
+}
+
 function tweetQuote () {
     window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML + " --by " + author.innerHTML, "Tweet WIndow")
 }
 
-document.addEventListener('DOMContentLoaded', generateQuote);
+setInterval(changeBackground, 60000)
+
+document.addEventListener('DOMContentLoaded', () => {
+    generateQuote()
+    changeBackground()
+});
