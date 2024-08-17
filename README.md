@@ -1,6 +1,6 @@
 ## Program Description
 
-This web application is a simple quote generator with appealing backgrounds to give it more life. It also has the feature to tweet a quote you like on X. Tjis web application is fully responsive. For the future advancement of this project I will be adding the option to choose between quote generation or shuffling of bible verses. Also will be converting it to a chrome extension to bring words that edify the soul to people as the browse the internet. 
+This web application is a simple quote generator with appealing backgrounds to give it more life. It also has the feature to tweet a quote you like on X. This web application is fully responsive. For the future advancement of this project I will be adding the option to choose between quote generation or shuffling of bible verses. Also will be converting it to a chrome extension to bring words that edify the soul to people as the browse the internet. 
 
 ## Technology Used.
 
